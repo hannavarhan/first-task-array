@@ -8,4 +8,29 @@
     <artifactId>array</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <!--Log4j 2-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.9.8</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
 </project>

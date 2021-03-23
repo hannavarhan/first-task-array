@@ -5,10 +5,12 @@ import java.util.Arrays;
 public class MyIntArray {
     private int[] array;
 
-    public MyIntArray() {
-    }
+    public MyIntArray() {    }
 
     public MyIntArray(int size) {
+        if (size < 1) {
+            throw new IllegalArgumentException("Wrong size");
+        }
         this.array = new int[size];
     }
 
@@ -17,11 +19,19 @@ public class MyIntArray {
     }
 
     public int get(int i) {
-        return array[i];
+        if (i >= 0 && i < array.length) {
+            return array[i];
+        } else {
+            throw new IllegalArgumentException("Wrong get position");
+        }
     }
 
     public void set(int position, int value) {
-        array[position] = value;
+        if (position >= 0 && position <= array.length) {
+            array[position] = value;
+        } else {
+            throw new IllegalArgumentException("Wrong set position");
+        }
     }
 
     public int size() {

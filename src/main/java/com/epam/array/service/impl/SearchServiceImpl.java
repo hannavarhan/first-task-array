@@ -2,8 +2,13 @@ package com.epam.array.service.impl;
 
 import com.epam.array.entity.MyIntArray;
 import com.epam.array.service.SearchService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SearchServiceImpl implements SearchService {
+
+    private final static Logger logger = LogManager.getLogger(SearchServiceImpl.class);
+
     public int findMin(MyIntArray myIntArray) {
         int min = myIntArray.get(0);
         for (int i = 0; i < myIntArray.size(); i++) {
@@ -11,6 +16,7 @@ public class SearchServiceImpl implements SearchService {
                 min = myIntArray.get(i);
             }
         }
+        logger.info("min: " + min + " of: " + myIntArray);
         return min;
     }
 
@@ -21,10 +27,12 @@ public class SearchServiceImpl implements SearchService {
                 max = myIntArray.get(i);
             }
         }
+        logger.info("max: " + max + " of: " + myIntArray);
         return max;
     }
 
     public double findAverage(MyIntArray myIntArray) {
+        logger.info("average: " + findSum(myIntArray) / myIntArray.size() + " of: " + myIntArray);
         return (double)findSum(myIntArray) / myIntArray.size();
     }
 
@@ -33,6 +41,7 @@ public class SearchServiceImpl implements SearchService {
         for (int i = 0; i < myIntArray.size(); i++) {
             sum += myIntArray.get(i);
         }
+        logger.info("sum: " + sum + " of: " + myIntArray);
         return sum;
     }
 
@@ -43,6 +52,7 @@ public class SearchServiceImpl implements SearchService {
                 posNumber++;
             }
         }
+        logger.info("positiveElementsNumber: " + posNumber + " of: " + myIntArray);
         return posNumber;
     }
 
@@ -53,6 +63,7 @@ public class SearchServiceImpl implements SearchService {
                 negNumber++;
             }
         }
+        logger.info("negativeElementsNumber: " + negNumber + " of: " + myIntArray);
         return negNumber;
     }
 }
