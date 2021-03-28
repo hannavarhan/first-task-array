@@ -12,7 +12,8 @@ public class ArrayEntity {
 
     private final static Logger logger = LogManager.getLogger(ArrayEntity.class);
 
-    public ArrayEntity() {    }
+    public ArrayEntity() {
+    }
 
     public ArrayEntity(int size) throws ArrayException {
         if (size < 1) {
