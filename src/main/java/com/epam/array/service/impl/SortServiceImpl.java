@@ -59,8 +59,7 @@ public class SortServiceImpl implements SortService {
         int l = currentL, r = currentR;
         int c = rand.nextInt(r - l);
         int median = array.get(l + c);
-        while (l <= r)
-        {
+        while (l <= r) {
             while (array.get(l) < median) {
                 l++;
             }
