@@ -2,7 +2,7 @@ package com.epam.array.reader;
 
 import com.epam.array.entity.ArrayEntity;
 import com.epam.array.exception.ArrayException;
-import com.epam.array.exception.ArrayValidateException;
+import com.epam.array.exception.ArrayValidatorException;
 import com.epam.array.validator.StringValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,7 +27,7 @@ public class ArrayReader {
                     result = StringValidator.validate(line);
                     logger.info("string " + line + " is read");
                     return result;
-                } catch (ArrayValidateException e) {
+                } catch (ArrayValidatorException e) {
                     result = null;
                     line = reader.readLine();
                     logger.info("line is " + line);
