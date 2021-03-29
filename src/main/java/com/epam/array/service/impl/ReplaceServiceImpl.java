@@ -11,21 +11,21 @@ public class ReplaceServiceImpl implements ReplaceService {
 
     private final static Logger logger = LogManager.getLogger(ReplaceServiceImpl.class);
 
-    public ArrayEntity replacePositive(ArrayEntity myIntArray) throws ArrayException {
-        ArrayEntity newMyIntArray = new ArrayEntity(myIntArray.size());
-        for (int i = 0; i < myIntArray.size(); i++) {
-            newMyIntArray.set(i, myIntArray.get(i) > 0 ? -myIntArray.get(i) : myIntArray.get(i));
+    public ArrayEntity replacePositive(ArrayEntity arrayEntity) throws ArrayException {
+        ArrayEntity newMyIntArray = new ArrayEntity(arrayEntity.size());
+        for (int i = 0; i < arrayEntity.size(); i++) {
+            newMyIntArray.set(i, arrayEntity.get(i) > 0 ? -arrayEntity.get(i) : arrayEntity.get(i));
         }
-        logger.info("positive mas: " + newMyIntArray + ", before: " + myIntArray);
+        logger.info("positive mas: " + newMyIntArray + ", before: " + arrayEntity);
         return newMyIntArray;
     }
 
-    public ArrayEntity replaceNegative(ArrayEntity myIntArray) throws ArrayException {
-        ArrayEntity newMyIntArray = new ArrayEntity(myIntArray.size());
-        for (int i = 0; i < myIntArray.size(); i++) {
-            newMyIntArray.set(i, myIntArray.get(i) < 0 ? -myIntArray.get(i) : myIntArray.get(i));
+    public ArrayEntity replaceNegative(ArrayEntity arrayEntity) throws ArrayException {
+        ArrayEntity newMyIntArray = new ArrayEntity(arrayEntity.size());
+        for (int i = 0; i < arrayEntity.size(); i++) {
+            newMyIntArray.set(i, arrayEntity.get(i) < 0 ? -arrayEntity.get(i) : arrayEntity.get(i));
         }
-        logger.info("negative mas: " + newMyIntArray + ", before: " + myIntArray);
+        logger.info("negative mas: " + newMyIntArray + ", before: " + arrayEntity);
         return newMyIntArray;
     }
 }
