@@ -5,9 +5,9 @@ import com.epam.array.exception.ArrayException;
 
 public interface SortService {
 
-    ArrayEntity quickSort(ArrayEntity arrayEntity) throws ArrayException;
+    void quickSort(ArrayEntity arrayEntity) throws ArrayException;
 
-    ArrayEntity countingSort(ArrayEntity arrayEntity) throws ArrayException;
+    void countingSort(ArrayEntity arrayEntity) throws ArrayException;
 
-    ArrayEntity mergeSort(ArrayEntity arrayEntity) throws ArrayException;
+    void mergeSort(ArrayEntity arrayEntity) throws ArrayException;
 }
