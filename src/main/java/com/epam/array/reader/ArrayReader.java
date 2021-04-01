@@ -17,14 +17,15 @@ public class ArrayReader {
 
     private final static Logger logger = LogManager.getLogger(ArrayReader.class);
 
-    public ArrayEntity readArrayFromFile(String path) throws ArrayReaderException {
-        ArrayEntity result = null;
+    public String readArrayFromFile(String path) throws ArrayReaderException { //return string
+        String result = null;
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String line = reader.readLine();
             while (line != null) {
                 if (StringValidator.validate(line)) {
-                    StringParser parser = new StringParser();
-                    result = parser.parse(line);
+                    result = line;
+                    /*StringParser parser = new StringParser(); //убрать
+                    result = parser.parse(line);*/
                     logger.info("string " + line + " is read");
                     return result;
                 } else {
@@ -38,9 +39,7 @@ public class ArrayReader {
             throw new ArrayReaderException("file not found in read from file method");
         } catch (IOException e) {
             logger.error("IOException in read from file method");
-            throw new ArrayReaderException("IOException in read from file method\"");
-        } catch (ArrayException e) {
-            logger.error("array exception in read from file method");
+            throw new ArrayReaderException("IOException in read from file method");
         }
         return result;
     }

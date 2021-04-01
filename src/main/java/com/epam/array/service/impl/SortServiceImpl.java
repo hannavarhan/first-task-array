@@ -26,6 +26,10 @@ public class SortServiceImpl implements SortService {
 
     @Override
     public void countingSort(ArrayEntity arrayEntity) throws ArrayException {
+        if (arrayEntity == null) {
+            logger.error("Array is null in countingSort method");
+            throw new ArrayException("Array is null");
+        }
         int maxElement = 1_000_000;
         SearchService searchService = new SearchServiceImpl();
         int realMaxElement = searchService.findMax(arrayEntity);
@@ -49,6 +53,10 @@ public class SortServiceImpl implements SortService {
 
     @Override
     public void mergeSort(ArrayEntity arrayEntity) throws ArrayException {
+        if (arrayEntity == null) {
+            logger.error("Array is null in mergeSort method");
+            throw new ArrayException("Array is null");
+        }
         ArrayEntity mergeArray = new ArrayEntity(arrayEntity.size());
         recursiveMergeSort(arrayEntity, mergeArray, 0, arrayEntity.size() - 1);
         logger.info("Merge sort finished. Sorted array is:" + arrayEntity);

@@ -5,10 +5,11 @@ import java.util.regex.Pattern;
 
 public class StringValidator {
 
+    final static String IS_VALID_STRING = "^([-+])?\\d+(\\s(([-+])?\\d+))*$";
+
     public static boolean validate(String line) {
-        final String IS_VALID_STRING = "^([-+])?[0-9]+(\\s(([-+])?[0-9]+))*$";
         Pattern pattern = Pattern.compile(IS_VALID_STRING);
         Matcher matcher = pattern.matcher(line.trim());
-        return matcher.find();
+        return matcher.matches();
     }
 }
