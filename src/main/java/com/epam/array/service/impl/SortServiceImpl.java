@@ -16,6 +16,10 @@ public class SortServiceImpl implements SortService {
     private Random rand = new Random();
 
     public void quickSort(ArrayEntity arrayEntity) throws ArrayException {
+        if (arrayEntity == null) {
+            logger.error("Array is null in quickSort method");
+            throw new ArrayException("Array is null");
+        }
         recursiveQuickSort(arrayEntity, 0, arrayEntity.size() - 1);
         logger.info("Quick sort finished. Sorted array is:" + arrayEntity);
     }
