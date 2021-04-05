@@ -30,10 +30,20 @@ public class TestReplaceStreamService {
         Assert.assertEquals(actual, expected);
     }
 
+    @Test(expectedExceptions = ArrayException.class)
+    public void testExceptionReplaceStreamPositive() throws ArrayException {
+        replaceService.replacePositive(null);
+    }
+
     @Test
     public void replaceNegative() throws ArrayException {
         ArrayEntity actual = new ArrayEntity(new int[]{1, 2, 5, 2, 7});
         ArrayEntity expected = replaceService.replaceNegative(myIntArray);
         Assert.assertEquals(actual, expected);
+    }
+
+    @Test(expectedExceptions = ArrayException.class)
+    public void testExceptionReplaceStreamNegative() throws ArrayException {
+        replaceService.replaceNegative(null);
     }
 }

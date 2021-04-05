@@ -14,7 +14,7 @@ public class ArrayReader {
 
     private final static Logger logger = LogManager.getLogger(ArrayReader.class);
 
-    public String readArrayLineFromFile(String path) throws ArrayException { //return string
+    public String readArrayLineFromFile(String path) throws ArrayException {
         String result = null;
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String line = reader.readLine();

@@ -11,6 +11,7 @@ public class TestReplaceService {
 
     ArrayEntity myIntArray;
     ReplaceService replaceService;
+
     @BeforeClass
     public void setMyIntArray() {
         myIntArray = new ArrayEntity(new int[]{1, -2, 5, 2, -7});
@@ -24,10 +25,20 @@ public class TestReplaceService {
         Assert.assertEquals(actual, expected);
     }
 
+    @Test(expectedExceptions = ArrayException.class)
+    public void testExceptionReplacePositive() throws ArrayException {
+        replaceService.replacePositive(null);
+    }
+
     @Test
     public void replaceNegative() throws ArrayException {
         ArrayEntity actual = new ArrayEntity(new int[]{1, 2, 5, 2, 7});
         ArrayEntity expected = replaceService.replaceNegative(myIntArray);
         Assert.assertEquals(actual, expected);
+    }
+
+    @Test(expectedExceptions = ArrayException.class)
+    public void testExceptionReplaceNegative() throws ArrayException {
+        replaceService.replaceNegative(null);
     }
 }

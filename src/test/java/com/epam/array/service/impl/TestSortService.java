@@ -24,6 +24,11 @@ public class TestSortService {
         Assert.assertEquals(actual, expected);
     }
 
+    @Test(expectedExceptions = ArrayException.class)
+    public void testQuickSortException() throws ArrayException {
+        sortService.quickSort(null);
+    }
+
     @Test
     public void testCountingSort() throws ArrayException {
         ArrayEntity actual = new ArrayEntity(new int[]{-40, -6, -5, -2, 2, 3, 4, 4, 5, 8, 25});
@@ -32,12 +37,22 @@ public class TestSortService {
         Assert.assertEquals(actual, expected);
     }
 
+    @Test(expectedExceptions = ArrayException.class)
+    public void testCountingSortException() throws ArrayException {
+        sortService.countingSort(null);
+    }
+
     @Test
     public void testMergeSort() throws ArrayException {
         ArrayEntity actual = new ArrayEntity(new int[]{-4, -2, 1, 3, 5});
         ArrayEntity expected = new ArrayEntity(new int[]{1, -2, 3, -4, 5});
         sortService.mergeSort(expected);
         Assert.assertEquals(actual, expected);
+    }
+
+    @Test(expectedExceptions = ArrayException.class)
+    public void testMergeSortException() throws ArrayException {
+        sortService.mergeSort(null);
     }
 
 }
